@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-boot-pessoas" />
         <module name="apiconta" />
         <module name="spring-boot-gerfin" />
       </profile>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="apiconta" options="-parameters" />
       <module name="spring-boot-gerfin" options="-parameters" />
+      <module name="spring-boot-pessoas" options="-parameters" />
     </option>
   </component>
 </project>

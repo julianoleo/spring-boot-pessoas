@@ -1,8 +1,4 @@
 
-b
-2src/main/java/com/juliano/gerfin/logs/LogType.java,d\d\ddc3ab2b478886f44735c84357bead32f0e532a0
-m
-=src/main/java/com/juliano/gerfin/logs/LogRequestResponse.java,2\f\2f0f7d106acb1b93cb66583e7e941324370bab2f
 d
 4src/main/java/com/juliano/gerfin/model/ContaDto.java,3\0\30c407303f2236b1040ad7276c11994ce4313470
 a
@@ -25,8 +21,6 @@ i
 9src/main/java/com/juliano/gerfin/model/RequisicaoDto.java,4\2\425e7f88a02814c901b3357e0a6055ae42bd361a
 J
 log/spring-boot-logger.log,8\3\83c290504e54f3a452dfe5665973f610fed48e94
-A
-system.properties,a\5\a5db35984da8ffa0e255c16a2e31ae7b26e7d222
 r
 Bsrc/main/java/com/juliano/gerfin/exceptions/NotFoundException.java,d\f\df4083777f45924b14079169d8ed325049cc2c7f
 s
@@ -35,8 +29,6 @@ x
 Hsrc/main/java/com/juliano/gerfin/exceptions/models/ErrorResponseDto.java,f\7\f761b14ced03fcbb43f1212ea03ee9773df8877f
 w
 Gsrc/main/java/com/juliano/gerfin/exceptions/models/DetalhesExcecao.java,b\3\b36f55c73a955d77ba4fbbc6df67b24d00abd57c
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 y
 Isrc/main/java/com/juliano/gerfin/ApiGerenciadorFinanceiroApplication.java,c\7\c763fc49916175fbd4c5c4cc9ebbf8b4a656179f
 d
