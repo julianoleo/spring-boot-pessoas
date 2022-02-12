@@ -1,5 +1,7 @@
 package com.juliano.pessoas.controller;
 
+import com.juliano.pessoas.integracao.apiChaves.ChavesService;
+import com.juliano.pessoas.integracao.apiChaves.ChavesServiceClient;
 import com.juliano.pessoas.logs.APILogger;
 import com.juliano.pessoas.logs.models.ResponseDto;
 import com.juliano.pessoas.model.Pessoa;
@@ -23,12 +25,16 @@ public class PessoaController {
     @Autowired
     private PessoaService pessoaService;
 
+    @Autowired
+    private ChavesServiceClient validation;
+
     @GetMapping("/{doc}")
     public ResponseEntity<Pessoa> pessoaByDocumento(
             HttpServletRequest request,
             @PathVariable(name = "doc") String doc,
             @RequestHeader HttpHeaders headers
     ) {
+        validation.buscaValidation(request, headers);
         var _result = pessoaService.buscaPorDoc(doc);
         var _response = new ResponseEntity<>(_result, HttpStatus.OK);
         var _responseLog = new ResponseDto<>(_result);
