@@ -27,12 +27,6 @@ c
 3src/main/java/com/juliano/pessoas/model/Pessoa.java,a\2\a2d5a65a6ade2f7b3157ccea4facb137fb5f4d4b
 e
 5src/main/java/com/juliano/pessoas/model/Endereco.java,f\8\f82796b585cc8458eb64c81d7e281141687bfc1c
-{
-Ksrc/main/java/com/juliano/pessoas/integracao/buscaCep/ClientServiceCep.java,4\8\488c294ca9e0de54e1120a5eb9164f2f0b9c5df0
-s
-Csrc/main/java/com/juliano/pessoas/integracao/buscaCep/DadosCep.java,3\c\3cacad0f4dc7726a866d82909deabe12fea32167
-u
-Esrc/main/java/com/juliano/pessoas/integracao/buscaCep/ServiceCep.java,d\4\d42f15b36857ae0fd33705875b4fb62f7a855036
 r
 Bsrc/main/java/com/juliano/pessoas/repository/PessoaRepository.java,3\3\33adf33d20751f89abf9af7484b8526ff07f7abd
 t
@@ -45,9 +39,3 @@ n
 >src/main/java/com/juliano/pessoas/service/EnderecoService.java,7\3\73691c9d40bc6879f01642a588631e41eb93ef9f
 t
 Dsrc/main/java/com/juliano/pessoas/repository/EnderecoRepository.java,1\4\14f3c779cb629193c98a483f315a91852d6b509e
-w
-Gsrc/main/java/com/juliano/pessoas/integracao/apiChaves/ChavesModel.java,5\f\5f3b50798e4affe170604dbcb880fd2fff05ac80
-y
-Isrc/main/java/com/juliano/pessoas/integracao/apiChaves/ChavesService.java,8\f\8f237b026a49df45dcbbfa5ff3c9d37e9ed468f2
-
-Osrc/main/java/com/juliano/pessoas/integracao/apiChaves/ChavesServiceClient.java,3\d\3dce9bf123e1d97680124f244df0df2a83f6827f
