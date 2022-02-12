@@ -11,8 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class ChavesService {
 
-    @Value("${api_url}")
-    private String apiUrl;
+    private static final String apiUrl = "https://ws.apicep.com/cep/";
 
     public ResponseEntity<ChavesModel> buscaCep(String cep) {
         if(ValidaCep.verificaCep(cep)) {
