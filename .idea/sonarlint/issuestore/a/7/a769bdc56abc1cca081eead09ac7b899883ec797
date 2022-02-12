@@ -1,15 +1,0 @@
-
-O
-java:S3416"9Update this logger to use "MovimentacaoController.class".(ÐøôØ
-¹
-java:S11309"Remove the declaration of thrown exception 'org.springframework.web.bind.MissingServletRequestParameterException', as it cannot be thrown from method's body.(Õ’þ•þÿÿÿÿ
-Q
-java:S1128";Remove this unused import 'com.juliano.gerfin.model.Conta'.(ºÿùÁ
-@
-java:S1068"*Remove this unused "logger" private field.(ÐøôØ
-f	java:S117+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸¬æÒ
-f	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üŽèÄ
-e	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(žÑ¶ 
-f	java:S117>"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÞÃÙ»
-f	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üŽèÄ
-e	java:S117@"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(žÑ¶ 

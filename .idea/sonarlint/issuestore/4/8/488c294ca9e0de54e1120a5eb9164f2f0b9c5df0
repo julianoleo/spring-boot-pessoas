@@ -1,0 +1,21 @@
+
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œæ•
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(û¿ôŞ
+h
+java:S2259"FA "NullPointerException" could be thrown; "getBody()" can return null.(ÖÔÆéüÿÿÿÿ8ÉèµĞî/
+a
+java:S2259"FA "NullPointerException" could be thrown; "getBody()" can return null.(ä²´Œøÿÿÿÿ
+a
+java:S2259"FA "NullPointerException" could be thrown; "getBody()" can return null.(Ê³¼Ëùÿÿÿÿ
+\
+java:S2259"FA "NullPointerException" could be thrown; "getBody()" can return null.(Á›ƒã
+\
+java:S2259"FA "NullPointerException" could be thrown; "getBody()" can return null.(²½’·
+a
+java:S2259"FA "NullPointerException" could be thrown; "getBody()" can return null.(øÕÈúÿÿÿÿ
+\
+java:S2259"FA "NullPointerException" could be thrown; "getBody()" can return null.(¡€¶•
+[
+java:S2259"FA "NullPointerException" could be thrown; "getBody()" can return null.(¼òÕ=
+a
+java:S2259"FA "NullPointerException" could be thrown; "getBody()" can return null.(²¥½“ùÿÿÿÿ
