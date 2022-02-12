@@ -36,6 +36,19 @@ public class PessoaController {
         return _response;
     }
 
+    @GetMapping("/byid/{id}")
+    public ResponseEntity<Pessoa> pessoaById(
+            HttpServletRequest request,
+            @PathVariable(name = "id") String id,
+            @RequestHeader HttpHeaders headers
+    ) {
+        var _result = pessoaService.findById(id).orElseThrow();
+        var _response = new ResponseEntity<>(_result, HttpStatus.OK);
+        var _responseLog = new ResponseDto<>(_result);
+        APILogger.ok(_responseLog.getData(), APILogger.filterHeader(headers));
+        return _response;
+    }
+
     @PostMapping("/add")
     public ResponseEntity<Pessoa> cadastraPessoa(
             HttpServletRequest request,
