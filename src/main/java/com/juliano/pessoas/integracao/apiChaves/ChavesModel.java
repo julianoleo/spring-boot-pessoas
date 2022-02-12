@@ -6,13 +6,13 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ChavesModel {
-    private Integer status;
-    private Boolean ok;
-    private String code;
-    private String state;
-    private String city;
-    private String district;
-    private String address;
-    private String statusText;
-    private String message;
+    private Integer statusCode;
+    private String descStatus;
+
+    public ChavesModel() { super(); }
+
+    public ChavesModel(Integer statusCode, String descStatus) {
+        this.statusCode = statusCode;
+        this.descStatus = descStatus;
+    }
 }

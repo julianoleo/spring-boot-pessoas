@@ -1,7 +1,11 @@
 package com.juliano.pessoas.integracao.apiChaves;
 
+import com.juliano.pessoas.exceptions.UnauthorizedException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Service
 public class ChavesServiceClient {
@@ -9,18 +13,14 @@ public class ChavesServiceClient {
     @Autowired
     private ChavesService service;
 
-    public ChavesModel buscaCep(String cep){
-        var _result = service.buscaCep(cep);
+    public void buscaValidation(HttpServletRequest request, HttpHeaders headers){
+        var _result = service.buscaValidation(request, headers);
         ChavesModel chavesModel = new ChavesModel();
-            chavesModel.setStatus(_result.getBody().getStatus());
-            chavesModel.setAddress(_result.getBody().getAddress());
-            chavesModel.setCity(_result.getBody().getCity());
-            chavesModel.setOk(_result.getBody().getOk());
-            chavesModel.setCode(_result.getBody().getCode());
-            chavesModel.setDistrict(_result.getBody().getDistrict());
-            chavesModel.setState(_result.getBody().getState());
-            chavesModel.setStatusText(_result.getBody().getStatusText());
-            chavesModel.setMessage(_result.getBody().getMessage());
-            return chavesModel;
+            chavesModel.setStatusCode(_result.getBody().getStatusCode());
+            chavesModel.setDescStatus(_result.getBody().getDescStatus());
+
+            if(!chavesModel.getStatusCode().equals(200)){
+                throw new UnauthorizedException(chavesModel.getDescStatus());
+            }
     }
 }

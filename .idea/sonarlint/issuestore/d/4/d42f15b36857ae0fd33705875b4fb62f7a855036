@@ -1,0 +1,11 @@
+
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÚÌûª8óÕİÿî/
+l
+java:S1128"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.(ìø›8Šİÿî/
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­Íäë
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–±óøÿÿÿÿ8¹‡ÅÊî/
+ƒ
+java:S1488"aImmediately return this expression instead of assigning it to the temporary variable "_dadosCep".(–±óøÿÿÿÿ8ËÈÆÊî/
+G
+java:S5411"*Use the primitive boolean expression here.(»ÃŞú8­ùôÍî/
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(û¿ôŞ

@@ -9,6 +9,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -35,9 +36,18 @@ public class ExcpetionHandler extends ResponseEntityExceptionHandler {
     private final static String UNAUTHORIZED_CODE = "401 UNAUTHORIZED";
     private final static String UNAUTHORIZED_MESSAGE = "Solicitação Imprópria - Token inválido.";
     private final static String INVALID_CODE = "400 BAD REQUEST";
-    private final static String INVALID_MESSAGE = "Solicitação imprópria.";
+    private final static String INVALID_MESSAGE = "Solicitação imprópria, falta parametros no request.";
     private final static String INTERNAL_SERVER_ERROR_CODE = "500 INTERNAL SERVER ERROR";
     private final static String INTERNAL_SERVER_ERROR_MESSAGE = "Erro interno do servidor.";
+
+    @Override
+    protected ResponseEntity handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        DetalhesExcecao detalhes = new DetalhesExcecao(INVALID_CODE, INVALID_MESSAGE);
+        var response = new ResponseEntity<>(List.of(detalhes), HttpStatus.BAD_REQUEST);
+        HttpHeaders headersFormatados = formataHeader(request.getHeaderNames(), request);
+        APILogger.badRequest(response, APILogger.filterHeader(headersFormatados));
+        return new ResponseEntity<>(List.of(detalhes), HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(com.juliano.pessoas.exceptions.NotFoundException.class)
     protected ResponseEntity<List<ErrorResponseDto>> handleEntityNotFound(com.juliano.pessoas.exceptions.NotFoundException ex, HttpServletRequest request) {
@@ -53,6 +63,14 @@ public class ExcpetionHandler extends ResponseEntityExceptionHandler {
         HttpHeaders headers = formataHeader(request.getHeaderNames(), request);
         APILogger.noContent(response, APILogger.filterHeader(headers));
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(response);
+    }
+
+    @ExceptionHandler(com.juliano.pessoas.exceptions.UnauthorizedException.class)
+    protected ResponseEntity<List<ErrorResponseDto>> handleUnauthorizedException(com.juliano.pessoas.exceptions.UnauthorizedException ex, HttpServletRequest request) {
+        List<ErrorResponseDto> response = Collections.singletonList(new ErrorResponseDto(UNAUTHORIZED_CODE, ex.getMessage()));
+        HttpHeaders headers = formataHeader(request.getHeaderNames(), request);
+        APILogger.unauthorized(response, APILogger.filterHeader(headers));
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 
     @Override
