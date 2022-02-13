@@ -31,9 +31,13 @@ public class Pessoa {
         this.documento = ValidaDocumento.removeCaracteresEspeciais(documento);
         this.nome = nome;
         this.rg = rg;
-        this.sexo = sexo;
+        this.sexo = ajustaSexo(sexo);
         this.nomePai = nomePai;
         this.nomeMae = nomeMae;
         this.estCivil = estCivil;
+    }
+
+    private String ajustaSexo(String sexo) {
+        return sexo.toUpperCase();
     }
 }
