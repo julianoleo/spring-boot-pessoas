@@ -17,9 +17,25 @@ public class ValidaPessoa {
         else if(pessoa.getSexo() == null | pessoa.getSexo().isEmpty() || pessoa.getSexo().isBlank()) {
             throw new NotFoundException("Campo sexo vazio ou inexistente.");
         }
-        else if(pessoa.getSexo().toString().equalsIgnoreCase("F") || pessoa.getSexo().toString().equalsIgnoreCase("M")) {
+        else if(verificaSexo(pessoa.getSexo())) {
             throw new NotFoundException("Campo sexo incorreto, setar F para feminino ou M para masculino.");
         }
         else { }
+    }
+
+    public Boolean verificaSexo(String sexo) {
+        if(sexo.length() == 1) {
+            if(sexo.toLowerCase().contains("m")){
+                return true;
+            }
+            else if(sexo.toLowerCase().contains("f")) {
+                return true;
+            }
+            else{
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }
