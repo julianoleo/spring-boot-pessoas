@@ -5,6 +5,7 @@ import com.juliano.pessoas.exceptions.NotFoundException;
 import com.juliano.pessoas.model.Pessoa;
 import com.juliano.pessoas.repository.PessoaRepository;
 import com.juliano.pessoas.utils.ValidaDocumento;
+import com.juliano.pessoas.utils.ValidaPessoa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,9 @@ public class PessoaService {
 
     @Autowired
     private PessoaRepository pessoaRepository;
+
+    @Autowired
+    private ValidaPessoa validaPessoa;
 
     public Optional<Pessoa> findByDoc(String doc) {
         return Optional.ofNullable(pessoaRepository.findByDocumento(doc));
@@ -30,28 +34,19 @@ public class PessoaService {
     }
 
     public Pessoa insert(Pessoa pessoa) {
+        validaPessoa.checaPessoa(pessoa);
         var _pessoa = findByDoc(pessoa.getDocumento());
-        if(_pessoa.isEmpty()) {
-            if(pessoa.getDocumento().isEmpty() || pessoa.getDocumento().isBlank()) {
-                throw new NotFoundException("Campo documento vazio ou inexistente.");
+        if(!_pessoa.isEmpty()) {
+            if(ValidaDocumento.isCPF(pessoa.getDocumento())) {
+                pessoa.setTipoDoc("CPF");
+                return pessoaRepository.insert(pessoa);
+            }
+            else if(ValidaDocumento.isCNPJ(pessoa.getDocumento())) {
+                pessoa.setTipoDoc("CNPJ");
+                return pessoaRepository.insert(pessoa);
             }
             else {
-                if(pessoa.getNome() == null || pessoa.getNome().isEmpty() || pessoa.getNome().isBlank()) {
-                    throw new NotFoundException("Campo nome vazio ou inexistente.");
-                }
-                else {
-                    if(ValidaDocumento.isCPF(pessoa.getDocumento())) {
-                        pessoa.setTipoDoc("CPF");
-                        return pessoaRepository.insert(pessoa);
-                    }
-                    else if(ValidaDocumento.isCNPJ(pessoa.getDocumento())){
-                        pessoa.setTipoDoc("CNPJ");
-                        return pessoaRepository.insert(pessoa);
-                    }
-                    else {
-                        throw new NotFoundException("Documento inválido.");
-                    }
-                }
+                throw new RuntimeException("Erro ao cadastrar pessoa.");
             }
         }
         else {
