@@ -48,6 +48,7 @@ public class PessoaController {
             @PathVariable(name = "id") String id,
             @RequestHeader HttpHeaders headers
     ) {
+        validation.buscaValidation(request, headers);
         var _result = pessoaService.findById(id).orElseThrow();
         var _response = new ResponseEntity<>(_result, HttpStatus.OK);
         var _responseLog = new ResponseDto<>(_result);
@@ -61,6 +62,7 @@ public class PessoaController {
             @RequestBody Pessoa pessoa,
             @RequestHeader HttpHeaders headers
     ) {
+        validation.buscaValidation(request, headers);
         if(pessoa.toString().isEmpty()) {
             throw new ConstraintViolationException("Pessoa Vazia.", new HashSet<>());
         } else {

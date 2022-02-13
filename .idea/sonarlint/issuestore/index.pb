@@ -19,8 +19,6 @@ e
 5src/main/java/com/juliano/pessoas/logs/APILogger.java,b\f\bf6027c083aa74e2069baeb2f55f22e856f3152a
 l
 <src/main/java/com/juliano/pessoas/utils/ValidaDocumento.java,3\6\3690d8c274bc58673ef3f49406dc7608ba582fef
-c
-3src/main/java/com/juliano/pessoas/model/Pessoa.java,a\2\a2d5a65a6ade2f7b3157ccea4facb137fb5f4d4b
 r
 Bsrc/main/java/com/juliano/pessoas/repository/PessoaRepository.java,3\3\33adf33d20751f89abf9af7484b8526ff07f7abd
 l
