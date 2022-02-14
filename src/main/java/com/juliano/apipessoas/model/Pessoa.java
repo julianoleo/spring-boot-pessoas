@@ -39,8 +39,6 @@ public class Pessoa {
         this.estCivil = estCivil;
     }
 
-
-
     private String ajustaSexo(String sexo) {
         return sexo.toUpperCase();
     }
