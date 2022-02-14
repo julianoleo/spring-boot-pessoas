@@ -1,9 +1,11 @@
 package com.juliano.apipessoas.utils;
 
 import com.juliano.apipessoas.model.Endereco;
+import com.juliano.apipessoas.model.Fone;
 import com.juliano.apipessoas.model.dto.EnderecoDto;
 import com.juliano.apipessoas.model.dto.FinalPessoaDto;
 import com.juliano.apipessoas.model.Pessoa;
+import com.juliano.apipessoas.model.dto.FoneDto;
 import com.juliano.apipessoas.model.dto.PessoaDto;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +15,18 @@ import java.util.List;
 @Service
 public class ToDto {
 
-    public FinalPessoaDto pessoaDto(Pessoa pessoa, List<Endereco> enderecoList) {
+    public FinalPessoaDto pessoaDto(Pessoa pessoa, List<Endereco> enderecoList, List<Fone> fones) {
 
         List<EnderecoDto> _endDto = new ArrayList<EnderecoDto>();
 
         for(Endereco  end : enderecoList) {
             _endDto.add(convertEndDto(end));
+        }
+
+        List<FoneDto> _foneDto = new ArrayList<FoneDto>();
+
+        for(Fone fone : fones) {
+            _foneDto.add(convertFoneDto(fone));
         }
 
         var _pessoaDto =  new PessoaDto(
@@ -32,7 +40,8 @@ public class ToDto {
                 pessoa.getNomePai(),
                 pessoa.getNomeMae(),
                 pessoa.getEstCivil(),
-                _endDto
+                _endDto,
+                _foneDto
         );
 
         return new FinalPessoaDto(
@@ -52,6 +61,14 @@ public class ToDto {
                 endereco.getUf(),
                 endereco.getCidade(),
                 endereco.getCep()
+        );
+    }
+
+    private FoneDto convertFoneDto(Fone fone) {
+        return new FoneDto(
+                fone.getId(),
+                fone.getFone(),
+                fone.getDescFone()
         );
     }
 }
