@@ -25,8 +25,6 @@ public class Pessoa {
     private String nomeMae;
     private String estCivil;
 
-    public Pessoa() { super();}
-
     public Pessoa(Date dataCriacao, String tipoDoc, String documento, String nome, String rg, String sexo, String nomePai, String nomeMae, String estCivil) {
         this.dataCriacao = new Date();
         this.tipoDoc = tipoDoc;

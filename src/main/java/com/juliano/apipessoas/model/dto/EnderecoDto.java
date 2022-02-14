@@ -20,8 +20,6 @@ public class EnderecoDto {
     private String cidade;
     private String cep;
 
-    public EnderecoDto() { super(); }
-
     public EnderecoDto(String id, Date dataCriacao, String endereco, String numero, String complemento, String bairro, String pais, String uf, String cidade, String cep) {
         this.id = id;
         this.dataCriacao = dataCriacao;
