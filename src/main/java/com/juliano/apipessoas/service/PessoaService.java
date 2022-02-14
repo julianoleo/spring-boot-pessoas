@@ -4,6 +4,7 @@ import com.juliano.apipessoas.exceptions.NoContentRuntimeException;
 import com.juliano.apipessoas.exceptions.NotFoundException;
 import com.juliano.apipessoas.model.dto.FinalPessoaDto;
 import com.juliano.apipessoas.model.Pessoa;
+import com.juliano.apipessoas.repository.EmailRepository;
 import com.juliano.apipessoas.repository.EnderecoRepository;
 import com.juliano.apipessoas.repository.FoneRepository;
 import com.juliano.apipessoas.repository.PessoaRepository;
@@ -28,6 +29,9 @@ public class PessoaService {
     private FoneRepository foneRepository;
 
     @Autowired
+    private EmailRepository emailRepository;
+
+    @Autowired
     private ValidaPessoa validaPessoa;
 
     @Autowired
@@ -48,7 +52,8 @@ public class PessoaService {
         } else {
             var _endereco = enderecoRepository.findByIdPessoa(_pessoa.orElseThrow().getId());
             var _fone = foneRepository.findByIdCliente(_pessoa.orElseThrow().getId());
-            var _result =  toDto.pessoaDto(_pessoa.orElseThrow(), _endereco.orElseThrow(), _fone.orElseThrow());
+            var _email = emailRepository.findByIdCliente(_pessoa.orElseThrow().getId());
+            var _result =  toDto.pessoaDto(_pessoa.orElseThrow(), _endereco.orElseThrow(), _fone.orElseThrow(), _email.orElseThrow());
             return Optional.ofNullable(_result);
         }
     }

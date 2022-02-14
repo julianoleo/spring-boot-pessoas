@@ -10,8 +10,10 @@ import java.util.List;
 public class ContatosDto {
 
     private List<FoneDto> telefone;
+    private List<EmailDto> email;
 
-    public ContatosDto(List<FoneDto> telefone) {
+    public ContatosDto(List<FoneDto> telefone, List<EmailDto> email) {
         this.telefone = telefone;
+        this.email = email;
     }
 }
