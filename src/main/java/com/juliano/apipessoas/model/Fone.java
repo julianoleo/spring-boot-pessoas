@@ -23,6 +23,13 @@ public class Fone {
         this.descFone = descFone;
     }
 
+    public Fone(String id, String idCliente, String fone, String descFone) {
+        this.id = id;
+        this.idCliente = idCliente;
+        this.fone = fone;
+        this.descFone = descFone;
+    }
+
     @Override
     public String toString() {
         return "Fone{" +
