@@ -1,20 +1,15 @@
 package com.juliano.pessoas.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.juliano.pessoas.utils.ValidaDocumento;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
-@Document
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Pessoa {
+public class PessoaDto<T> {
 
-    @Id
     private String id;
     private Date dataCriacao;
     private String tipoDoc;
@@ -26,23 +21,21 @@ public class Pessoa {
     private String nomeMae;
     private String estCivil;
 
-    public Pessoa() { super();}
+    private List<T> endereco;
 
-    public Pessoa(Date dataCriacao, String tipoDoc, String documento, String nome, String rg, String sexo, String nomePai, String nomeMae, String estCivil) {
-        this.dataCriacao = new Date();
+    public PessoaDto() { super(); }
+
+    public PessoaDto(String id, Date dataCriacao, String tipoDoc, String documento, String nome, String rg, String sexo, String nomePai, String nomeMae, String estCivil, List<T> endereco) {
+        this.id = id;
+        this.dataCriacao = dataCriacao;
         this.tipoDoc = tipoDoc;
-        this.documento = ValidaDocumento.removeCaracteresEspeciais(documento);
+        this.documento = documento;
         this.nome = nome;
         this.rg = rg;
-        this.sexo = ajustaSexo(sexo);
+        this.sexo = sexo;
         this.nomePai = nomePai;
         this.nomeMae = nomeMae;
         this.estCivil = estCivil;
-    }
-
-
-
-    private String ajustaSexo(String sexo) {
-        return sexo.toUpperCase();
+        this.endereco = endereco;
     }
 }

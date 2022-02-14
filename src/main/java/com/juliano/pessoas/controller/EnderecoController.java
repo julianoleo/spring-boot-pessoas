@@ -1,5 +1,6 @@
 package com.juliano.pessoas.controller;
 
+import com.juliano.pessoas.integracao.apiChaves.ChavesServiceClient;
 import com.juliano.pessoas.logs.APILogger;
 import com.juliano.pessoas.logs.models.ResponseDto;
 import com.juliano.pessoas.model.Endereco;
@@ -24,6 +25,9 @@ public class EnderecoController {
     @Autowired
     private EnderecoService enderecoService;
 
+    @Autowired
+    private ChavesServiceClient validation;
+
     @PostMapping("/add")
     public ResponseEntity<Endereco> cadastraEndereco(
             HttpServletRequest request,
@@ -33,6 +37,7 @@ public class EnderecoController {
         if(endereco.toString().isEmpty()) {
             throw new ConstraintViolationException("Endereço Vazia.", new HashSet<>());
         } else {
+            validation.buscaValidation(request, headers);
             var _result = enderecoService.insert(endereco);
             var _response = new ResponseEntity<>(_result, HttpStatus.OK);
             var _responseLog = new ResponseDto<>(_result);

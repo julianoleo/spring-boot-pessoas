@@ -17,14 +17,6 @@ l
 <src/main/java/com/juliano/pessoas/ApiPessoasApplication.java,b\a\ba7910d92c7c425122df91c2775c4c2cfce972af
 e
 5src/main/java/com/juliano/pessoas/logs/APILogger.java,b\f\bf6027c083aa74e2069baeb2f55f22e856f3152a
-r
-Bsrc/main/java/com/juliano/pessoas/repository/PessoaRepository.java,3\3\33adf33d20751f89abf9af7484b8526ff07f7abd
-n
->src/main/java/com/juliano/pessoas/service/EnderecoService.java,7\3\73691c9d40bc6879f01642a588631e41eb93ef9f
-t
-Dsrc/main/java/com/juliano/pessoas/repository/EnderecoRepository.java,1\4\14f3c779cb629193c98a483f315a91852d6b509e
-f
-6src/main/java/com/juliano/pessoas/utils/ValidaCep.java,9\a\9a70b20c048acbc02be9689b5d2005eb2002ed98
 {
 Ksrc/main/java/com/juliano/pessoas/integracao/buscaCep/ClientServiceCep.java,4\8\488c294ca9e0de54e1120a5eb9164f2f0b9c5df0
 s

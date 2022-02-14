@@ -1,8 +1,0 @@
-
-U
-java:S1118":Add a private constructor to hide the implicit public one.(ÇÎ ‰øÿÿÿÿ
-\
-java:S1126"AReplace this if-then-else statement by a single return statement.(ûÍ·²ÿÿÿÿÿ
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÀÍŞùÿÿÿÿ
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜›Ø¸
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßëî
