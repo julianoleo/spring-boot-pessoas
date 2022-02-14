@@ -46,7 +46,7 @@ public class ValidaFone {
         }
     }
 
-    private Boolean foneExisteById(String idFone) {
+    public Boolean foneExisteById(String idFone) {
         var _fone = foneRepository.findById(idFone);
         if(_fone.isEmpty()) {
             return false;

@@ -18,7 +18,6 @@ public class ChavesServiceClient {
         ChavesModel chavesModel = new ChavesModel();
             chavesModel.setStatusCode(_result.getBody().getStatusCode());
             chavesModel.setDescStatus(_result.getBody().getDescStatus());
-
             if(!chavesModel.getStatusCode().equals(200)){
                 throw new UnauthorizedException(chavesModel.getDescStatus());
             }

@@ -1,4 +1,4 @@
-package com.juliano.apipessoas.utils.service;
+package com.juliano.apipessoas.service;
 
 import com.juliano.apipessoas.model.Fone;
 import com.juliano.apipessoas.repository.FoneRepository;
@@ -27,10 +27,16 @@ public class FoneService {
     public Fone update(String idFone, Fone fone) {
         validaFone.checaFoneUpdate(idFone);
         Optional<Fone> _fonePesquisado = foneRepository.findById(idFone);
-
         if(fone.getFone() != null) { _fonePesquisado.orElseThrow().setFone(ValidaDocumento.removeCaracteresEspeciaisFone(fone.getFone()));}
-        if(fone.getDescFone() != null) { _fonePesquisado.orElseThrow().setDescFone(fone.getDescFone()); };
-
+        if(fone.getDescFone() != null) { _fonePesquisado.orElseThrow().setDescFone(fone.getDescFone()); }
         return foneRepository.save(_fonePesquisado.orElseThrow());
+    }
+
+    public void delete(String idFone) {
+        if(validaFone.foneExisteById(idFone)) {
+            foneRepository.deleteById(idFone);
+        } else {
+            throw new RuntimeException("Telefone inexistente.");
+        }
     }
 }
