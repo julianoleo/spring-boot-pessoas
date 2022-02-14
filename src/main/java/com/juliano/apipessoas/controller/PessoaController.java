@@ -4,7 +4,7 @@ import com.juliano.apipessoas.integracao.apiChaves.ChavesServiceClient;
 import com.juliano.apipessoas.logs.APILogger;
 import com.juliano.apipessoas.logs.models.ResponseDto;
 import com.juliano.apipessoas.model.Pessoa;
-import com.juliano.apipessoas.service.PessoaService;
+import com.juliano.apipessoas.utils.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

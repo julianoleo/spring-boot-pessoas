@@ -5,8 +5,8 @@ import com.juliano.apipessoas.logs.APILogger;
 import com.juliano.apipessoas.logs.models.ResponseDto;
 import com.juliano.apipessoas.model.Email;
 import com.juliano.apipessoas.model.Fone;
-import com.juliano.apipessoas.service.EmailService;
-import com.juliano.apipessoas.service.FoneService;
+import com.juliano.apipessoas.utils.service.EmailService;
+import com.juliano.apipessoas.utils.service.FoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -62,6 +62,9 @@ public class ContatoController {
             throw new ConstraintViolationException("Fone Vazio.", new HashSet<>());
         } else {
             validation.buscaValidation(request, headers);
+
+
+
             var _result = foneService.update(idFone, fone);
             var _response = new ResponseEntity<>(_result, HttpStatus.OK);
             var _responseLog = new ResponseDto<>(_result);

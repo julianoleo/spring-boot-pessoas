@@ -1,7 +1,8 @@
-package com.juliano.apipessoas.service;
+package com.juliano.apipessoas.utils.service;
 
 import com.juliano.apipessoas.model.Fone;
 import com.juliano.apipessoas.repository.FoneRepository;
+import com.juliano.apipessoas.utils.ValidaDocumento;
 import com.juliano.apipessoas.utils.ValidaFone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,16 +24,13 @@ public class FoneService {
         return foneRepository.insert(fone);
     }
 
-    public Optional<Fone> update(String idFone, Fone fone) {
+    public Fone update(String idFone, Fone fone) {
         validaFone.checaFoneUpdate(idFone);
-        var _fonePesquisado = foneRepository.findById(idFone);
+        Optional<Fone> _fonePesquisado = foneRepository.findById(idFone);
 
-        Fone _fone = new Fone(
-                idFone,
-                _fonePesquisado.orElseThrow().getIdCliente(),
-                fone.getFone(),
-                fone.getDescFone()
-        );
-        return Optional.ofNullable(foneRepository.save(_fone));
+        if(fone.getFone() != null) { _fonePesquisado.orElseThrow().setFone(ValidaDocumento.removeCaracteresEspeciaisFone(fone.getFone()));}
+        if(fone.getDescFone() != null) { _fonePesquisado.orElseThrow().setDescFone(fone.getDescFone()); };
+
+        return foneRepository.save(_fonePesquisado.orElseThrow());
     }
 }

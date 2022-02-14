@@ -4,7 +4,7 @@ import com.juliano.apipessoas.integracao.apiChaves.ChavesServiceClient;
 import com.juliano.apipessoas.logs.APILogger;
 import com.juliano.apipessoas.logs.models.ResponseDto;
 import com.juliano.apipessoas.model.Endereco;
-import com.juliano.apipessoas.service.EnderecoService;
+import com.juliano.apipessoas.utils.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
