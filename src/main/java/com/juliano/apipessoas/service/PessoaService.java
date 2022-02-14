@@ -2,7 +2,7 @@ package com.juliano.apipessoas.service;
 
 import com.juliano.apipessoas.exceptions.NoContentRuntimeException;
 import com.juliano.apipessoas.exceptions.NotFoundException;
-import com.juliano.apipessoas.model.FinalPessoaDto;
+import com.juliano.apipessoas.model.dto.FinalPessoaDto;
 import com.juliano.apipessoas.model.Pessoa;
 import com.juliano.apipessoas.repository.EnderecoRepository;
 import com.juliano.apipessoas.repository.PessoaRepository;
