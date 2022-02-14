@@ -22,12 +22,9 @@ public class PessoaDto<T> {
     private String estCivil;
 
     private List<T> endereco;
-    private List<T> telefone;
+    private ContatosDto contatos;
 
-
-    public PessoaDto() { super(); }
-
-    public PessoaDto(String id, Date dataCriacao, String tipoDoc, String documento, String nome, String rg, String sexo, String nomePai, String nomeMae, String estCivil, List<T> endereco, List<T> telefone) {
+    public PessoaDto(String id, Date dataCriacao, String tipoDoc, String documento, String nome, String rg, String sexo, String nomePai, String nomeMae, String estCivil, List<T> endereco, ContatosDto contatos) {
         this.id = id;
         this.dataCriacao = dataCriacao;
         this.tipoDoc = tipoDoc;
@@ -39,6 +36,6 @@ public class PessoaDto<T> {
         this.nomeMae = nomeMae;
         this.estCivil = estCivil;
         this.endereco = endereco;
-        this.telefone = telefone;
+        this.contatos = contatos;
     }
 }
