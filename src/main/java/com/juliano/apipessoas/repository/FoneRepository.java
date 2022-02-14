@@ -13,5 +13,4 @@ public interface FoneRepository extends MongoRepository<Fone, String> {
 
     Optional<List<Fone>> findByIdCliente(String id);
 
-    Fone save(Fone fone);
 }

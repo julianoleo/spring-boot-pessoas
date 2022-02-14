@@ -1,4 +1,4 @@
-package com.juliano.apipessoas.service;
+package com.juliano.apipessoas.utils.service;
 
 import com.juliano.apipessoas.model.Email;
 import com.juliano.apipessoas.repository.EmailRepository;

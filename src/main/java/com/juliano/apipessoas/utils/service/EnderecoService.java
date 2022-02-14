@@ -1,4 +1,4 @@
-package com.juliano.apipessoas.service;
+package com.juliano.apipessoas.utils.service;
 
 import com.juliano.apipessoas.model.Endereco;
 import com.juliano.apipessoas.repository.EnderecoRepository;
