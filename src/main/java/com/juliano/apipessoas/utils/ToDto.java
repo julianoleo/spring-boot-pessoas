@@ -2,11 +2,8 @@ package com.juliano.apipessoas.utils;
 
 import com.juliano.apipessoas.model.Endereco;
 import com.juliano.apipessoas.model.Fone;
-import com.juliano.apipessoas.model.dto.EnderecoDto;
-import com.juliano.apipessoas.model.dto.FinalPessoaDto;
+import com.juliano.apipessoas.model.dto.*;
 import com.juliano.apipessoas.model.Pessoa;
-import com.juliano.apipessoas.model.dto.FoneDto;
-import com.juliano.apipessoas.model.dto.PessoaDto;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,6 +26,10 @@ public class ToDto {
             _foneDto.add(convertFoneDto(fone));
         }
 
+        ContatosDto _contatoDto = new ContatosDto(
+                _foneDto
+        );
+
         var _pessoaDto =  new PessoaDto(
                 pessoa.getId(),
                 pessoa.getDataCriacao(),
@@ -41,7 +42,7 @@ public class ToDto {
                 pessoa.getNomeMae(),
                 pessoa.getEstCivil(),
                 _endDto,
-                _foneDto
+                _contatoDto
         );
 
         return new FinalPessoaDto(
