@@ -1,5 +1,6 @@
 package com.juliano.apipessoas.utils;
 
+import com.juliano.apipessoas.model.Email;
 import com.juliano.apipessoas.model.Endereco;
 import com.juliano.apipessoas.model.Fone;
 import com.juliano.apipessoas.model.dto.*;
@@ -12,7 +13,12 @@ import java.util.List;
 @Service
 public class ToDto {
 
-    public FinalPessoaDto pessoaDto(Pessoa pessoa, List<Endereco> enderecoList, List<Fone> fones) {
+    public FinalPessoaDto pessoaDto(
+            Pessoa pessoa,
+            List<Endereco> enderecoList,
+            List<Fone> fones,
+            List<Email> emails
+    ) {
 
         List<EnderecoDto> _endDto = new ArrayList<EnderecoDto>();
 
@@ -26,8 +32,17 @@ public class ToDto {
             _foneDto.add(convertFoneDto(fone));
         }
 
+
+        List<EmailDto> _emailDto = new ArrayList<EmailDto>();
+
+        for (Email email: emails) {
+            _emailDto.add(convertEmailDto(email));
+        }
+
+
         ContatosDto _contatoDto = new ContatosDto(
-                _foneDto
+                _foneDto,
+                _emailDto
         );
 
         var _pessoaDto =  new PessoaDto(
@@ -70,6 +85,14 @@ public class ToDto {
                 fone.getId(),
                 fone.getFone(),
                 fone.getDescFone()
+        );
+    }
+
+    private EmailDto convertEmailDto(Email email) {
+        return new EmailDto(
+                email.getId(),
+                email.getEmail(),
+                email.getDescEmail()
         );
     }
 }

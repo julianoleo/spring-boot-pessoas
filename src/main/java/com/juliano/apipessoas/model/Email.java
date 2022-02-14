@@ -14,10 +14,12 @@ public class Email {
     private String id;
     private String idCliente;
     private String email;
+    private String descEmail;
 
-    public Email(String idCliente, String email) {
+    public Email(String idCliente, String email, String descEmail) {
         this.idCliente = idCliente;
         this.email = email;
+        this.descEmail = descEmail;
     }
 
     @Override
@@ -25,6 +27,7 @@ public class Email {
         return "Email{" +
                 "id='" + id + '\'' +
                 ", email='" + email + '\'' +
+                ", descEmail='" + descEmail + '\'' +
                 '}';
     }
 }
