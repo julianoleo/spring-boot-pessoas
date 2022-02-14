@@ -1,4 +1,4 @@
-package com.juliano.apipessoas.model;
+package com.juliano.apipessoas.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
