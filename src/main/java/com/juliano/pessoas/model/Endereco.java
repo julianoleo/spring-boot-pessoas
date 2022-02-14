@@ -25,6 +25,8 @@ public class Endereco {
     private String cidade;
     private String cep;
 
+    public Endereco() { super(); }
+
     public Endereco(Date dataCriacao, String idPessoa, String endereco, String numero, String complemento, String bairro, String pais, String uf, String cidade, String cep) {
         this.dataCriacao = new Date();
         this.idPessoa = idPessoa;

@@ -17,7 +17,7 @@ public class ValidaPessoa {
         else if(pessoa.getSexo() == null | pessoa.getSexo().isEmpty() || pessoa.getSexo().isBlank()) {
             throw new NotFoundException("Campo sexo vazio ou inexistente.");
         }
-        else if(verificaSexo(pessoa.getSexo())) {
+        else if(!verificaSexo(pessoa.getSexo())) {
             throw new NotFoundException("Campo sexo incorreto, setar F para feminino ou M para masculino.");
         }
         else { }

@@ -43,13 +43,13 @@ public class PessoaController {
     }
 
     @GetMapping("/byid/{id}")
-    public ResponseEntity<Pessoa> pessoaById(
+    public ResponseEntity<?> pessoaById(
             HttpServletRequest request,
             @PathVariable(name = "id") String id,
             @RequestHeader HttpHeaders headers
     ) {
         validation.buscaValidation(request, headers);
-        var _result = pessoaService.findById(id).orElseThrow();
+        var _result = pessoaService.buscaById(id).orElseThrow();
         var _response = new ResponseEntity<>(_result, HttpStatus.OK);
         var _responseLog = new ResponseDto<>(_result);
         APILogger.ok(_responseLog.getData(), APILogger.filterHeader(headers));
