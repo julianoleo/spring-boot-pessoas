@@ -6,6 +6,8 @@ import com.juliano.apipessoas.utils.ValidaFone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class FoneService {
 
@@ -21,11 +23,16 @@ public class FoneService {
         return foneRepository.insert(fone);
     }
 
-    public Fone update(String idFone, Fone fone) {
+    public Optional<Fone> update(String idFone, Fone fone) {
         validaFone.checaFoneUpdate(idFone);
-        var _fone = foneRepository.findById(idFone);
-        _fone.orElseThrow().setFone(fone.getFone());
-        _fone.orElseThrow().setDescFone(fone.getDescFone());
-        return foneRepository.update(_fone);
+        var _fonePesquisado = foneRepository.findById(idFone);
+
+        Fone _fone = new Fone(
+                idFone,
+                _fonePesquisado.orElseThrow().getIdCliente(),
+                fone.getFone(),
+                fone.getDescFone()
+        );
+        return Optional.ofNullable(foneRepository.save(_fone));
     }
 }
