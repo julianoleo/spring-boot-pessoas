@@ -20,4 +20,12 @@ public class FoneService {
         fone.setIdCliente(idCliente);
         return foneRepository.insert(fone);
     }
+
+    public Fone update(String idFone, Fone fone) {
+        validaFone.checaFoneUpdate(idFone);
+        var _fone = foneRepository.findById(idFone);
+        _fone.orElseThrow().setFone(fone.getFone());
+        _fone.orElseThrow().setDescFone(fone.getDescFone());
+        return foneRepository.update(_fone);
+    }
 }

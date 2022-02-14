@@ -51,6 +51,25 @@ public class ContatoController {
         }
     }
 
+    @PutMapping("/update/fone/{idFone}")
+    public ResponseEntity<?> updateFone(
+            HttpServletRequest request,
+            @PathVariable(name = "idFone") String idFone,
+            @RequestBody Fone fone,
+            @RequestHeader HttpHeaders headers
+    ) {
+        if(fone.toString().isEmpty()) {
+            throw new ConstraintViolationException("Fone Vazio.", new HashSet<>());
+        } else {
+            validation.buscaValidation(request, headers);
+            var _result = foneService.update(idFone, fone);
+            var _response = new ResponseEntity<>(_result, HttpStatus.OK);
+            var _responseLog = new ResponseDto<>(_result);
+            APILogger.ok(_responseLog.getData(), APILogger.filterHeader(headers));
+            return _response;
+        }
+    }
+
     @PostMapping("/add/email/{idCliente}")
     public ResponseEntity<?> cadastraEmail(
             HttpServletRequest request,

@@ -30,9 +30,25 @@ public class ValidaFone {
         else { }
     }
 
+    public void checaFoneUpdate(String idFone) {
+        if(!foneExisteById(idFone)) {
+            throw new NotFoundException("Fone inexistente.");
+        }
+        else { }
+    }
+
     private Boolean pessoaExiste(String idCliente) {
         var _pessoa = pessoaRepository.findById(idCliente);
         if(_pessoa.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private Boolean foneExisteById(String idFone) {
+        var _fone = foneRepository.findById(idFone);
+        if(_fone.isEmpty()) {
             return false;
         } else {
             return true;

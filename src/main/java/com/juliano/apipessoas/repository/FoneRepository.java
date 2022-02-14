@@ -12,4 +12,6 @@ public interface FoneRepository extends MongoRepository<Fone, String> {
     Optional<Fone> findByFone(String removeCaracteresEspeciaisFone);
 
     Optional<List<Fone>> findByIdCliente(String id);
+
+    Fone update(Optional<Fone> fone);
 }
