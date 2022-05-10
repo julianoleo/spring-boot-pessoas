@@ -1,25 +1,7 @@
 
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 B
 utils/logs_api.bat,e\2\e2f15a89c571ee31846a16e3a0a1293f76457987
 G
 utils/logs_chamadas.bat,5\b\5b2bedf6576743d1591403b477bad2934f1ccdce
-J
-log/spring-boot-logger.log,8\3\83c290504e54f3a452dfe5665973f610fed48e94
 A
 system.properties,a\5\a5db35984da8ffa0e255c16a2e31ae7b26e7d222
-n
->src/main/java/com/juliano/pessoas/logs/models/ResponseDto.java,9\c\9c31994612576af3ceb1385e1811422d9a130405
-p
-@src/main/java/com/juliano/pessoas/logs/models/RequisicaoDto.java,9\b\9b04cebaa2c522cca37e34c51d2c57eee91546a2
-l
-<src/main/java/com/juliano/pessoas/ApiPessoasApplication.java,b\a\ba7910d92c7c425122df91c2775c4c2cfce972af
-e
-5src/main/java/com/juliano/pessoas/logs/APILogger.java,b\f\bf6027c083aa74e2069baeb2f55f22e856f3152a
-{
-Ksrc/main/java/com/juliano/pessoas/integracao/buscaCep/ClientServiceCep.java,4\8\488c294ca9e0de54e1120a5eb9164f2f0b9c5df0
-s
-Csrc/main/java/com/juliano/pessoas/integracao/buscaCep/DadosCep.java,3\c\3cacad0f4dc7726a866d82909deabe12fea32167
-u
-Esrc/main/java/com/juliano/pessoas/integracao/buscaCep/ServiceCep.java,d\4\d42f15b36857ae0fd33705875b4fb62f7a855036
